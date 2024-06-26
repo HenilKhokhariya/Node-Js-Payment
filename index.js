@@ -1,12 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "./html")));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./html/index.html"));
+});
 const fixedAmount = "1.00";
-app.post("/", (req, res) => {
+app.post("/pay", (req, res) => {
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const payeeName = "henil";
   const currency = "INR";
