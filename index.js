@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const fixedAmount = "1.00";
-app.post("/", (req, res) => {
+app.get("/", (req, res) => {
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const payeeName = "henil";
   const currency = "INR";
