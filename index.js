@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 app.post('/initiate-payment', (req, res) => {
   const { amount } = req.body;
-  const deepLink = `paymentapp://pay?amount=${amount}&callbackUrl=http://yourserver.com/payment-response`;
+  const deepLink = `paymentapp://pay?amount=${amount}&callbackUrl=https://node-js-payment.onrender.com/payment-response`;
   res.send(`<html>
     <body>
       <a href="${deepLink}">Pay Now</a>
