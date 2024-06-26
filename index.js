@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/initiate-payment", (req, res) => {
-  const { amount } = req.body;
+  const { amount } = 1;
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const deepLink = `paymentapp://pay?pa=${payeeVPA}&amount=${amount}&cu=IND&callbackUrl=https://node-js-payment.onrender.com/payment-response`;
   res.send(`<html>
