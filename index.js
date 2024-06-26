@@ -6,9 +6,9 @@ const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "./html")));
+app.use(express.static(path.join(__dirname, "./")));
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./html/index.html"));
+  res.sendFile(path.join(__dirname, ".index.html"));
 });
 const fixedAmount = "1.00";
 app.post("/pay", (req, res) => {
