@@ -15,9 +15,10 @@ app.get("/", (req, res) => {
   const deepLink = `phonepe://pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
   const gLink = `tez://upi/pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
   res.send(`<html>
-    <body>
-      <a href="${deepLink}">Pay Now</a>
-      <a href="${gLink}">Pay Now</a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <body class="text-center">
+      <a class="btn btn-success w-25 m-5"  href="${deepLink}">Phone Pay</a>
+      <a class="btn btn-danger w-25" href="${gLink}">Gpay</a>
     </body>
   </html>`);
 });
