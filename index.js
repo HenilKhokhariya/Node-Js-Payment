@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  const { amount } = 1;
+  const { amount } = '1';
   // const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   // const payeeName = "He";
   const deepLink = `phonepe://pay?pa=SBIPMOPAD.02SOB0000021160-YM542163@sbipay&pn=henil&am=${amount}&cu=INR`;
