@@ -8,12 +8,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const fixedAmount = "1.00";
+const callbackUrl = "https://node-js-payment.onrender.com/payment-response";
 app.get("/", (req, res) => {
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const payeeName = "henil";
   const currency = "INR";
-  const deepLink = `phonepe://pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
-  const gLink = `tez://upi/pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
+  const deepLink = `phonepe://pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}&callbackUrl=${encodeURIComponent(
+    callbackUrl
+  )}`;
+  const gLink = `tez://upi/pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}&callbackUrl=${encodeURIComponent(
+    callbackUrl
+  )}`;
   res.send(`<html>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <body class="text-center">
