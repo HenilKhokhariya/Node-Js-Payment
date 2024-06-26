@@ -6,7 +6,7 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/", (req, res) => {
+app.get("/", (req, res) => {
   const { amount } = 1;
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const deepLink = `paymentapp://pay?pa=${payeeVPA}&amount=${amount}&cu=IND&callbackUrl=https://node-js-payment.onrender.com/payment-response`;
