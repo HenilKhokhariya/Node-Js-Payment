@@ -5,15 +5,13 @@ const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  const { amount } = "1";
+const fixedAmount = "1.00";
+app.post("/", (req, res) => {
   const payeeVPA = "SBIPMOPAD.02SOB0000021160-YM542163@sbipay";
   const payeeName = "henil";
   const currency = "INR";
-  const deepLink = `phonepe://pay?pa=${payeeVPA}&pn=${payeeName}&am=${amount}&cu=${currency}`;
-  const gLink =
-    `tez://upi/pay?pa=${payeeVPA}&pn=${payeeName}&am=${amount}&cu=${currency}`;
+  const deepLink = `phonepe://pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
+  const gLink = `tez://upi/pay?pa=${payeeVPA}&pn=${payeeName}&am=${fixedAmount}&cu=${currency}`;
   res.send(`<html>
     <body>
       <a href="${deepLink}">Pay Now</a>
